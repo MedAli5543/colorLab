@@ -1,6 +1,5 @@
 import React from 'react';
 import Palette from './components/Palette';
-import SeedColors from './seedColors'; 
 import seedColors from './seedColors';
 
 class App extends React.Component {
