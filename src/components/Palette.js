@@ -8,23 +8,29 @@ class Palette extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            level: 500
+            level: 500,
+            format: 'hex'
         }
     }
 
-    onChangeSliderValue = (level) => {
+    onChangeSliderValue = level => {
         this.setState({level})
     }
 
+    setColorFormat = format => {
+        this.setState({format})
+    }
+
     render() {
-        const {level} = this.state;
+        const {level, format} = this.state;
         const {colors} = this.props.palette;
-        const colorBoxes = colors[level].map(color =>  <ColorBox background={color.hex} name={color.name} />)
+        const colorBoxes = colors[level].map(color =>  <ColorBox background={color[format]} name={color.name} />)
         return (
             <div className="palette">
                 <Navbar
                     level={level}
                     changeSliderValue={this.onChangeSliderValue}
+                    setColorFormat={this.setColorFormat}
                 />
                 <div className="palette-colors">{colorBoxes}</div>
             </div>
