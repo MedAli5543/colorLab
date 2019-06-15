@@ -4,8 +4,8 @@ import {withStyles} from "@material-ui/styles";
 const styles = {
     root: {
         backgroundColor: "white",
-        borderRadius: "5px",
-        padding: ".5rem",
+        borderRadius: "2px",
+        padding: ".4rem",
         position: "relative",
         overflow: "hidden",
         "&:hover": {
@@ -23,13 +23,13 @@ const styles = {
         alignItems: 'center',
         margin: '0',
         color: "black",
-        paddingTop: ".5rem",
-        fontSize: "1rem",
+        fontWeight: '500',
+        fontSize: ".8rem",
         position: "relative"
     },
     emoji: {
         marginLeft: ".5rem",
-        fontSize: "1.5rem"
+        fontSize: "1rem"
     },
     miniColor: {
         height: "48%",
@@ -41,10 +41,10 @@ const styles = {
     }
 }
 
-const MiniPalette = ({classes, paletteName, emoji, colors}) => {
+const MiniPalette = ({classes, paletteName, emoji, colors, handleClick}) => {
     const miniColorBoxes = colors.map(color => <div className={classes.miniColor} style={{backgroundColor: color.color}} key={color.name} />);
     return (
-        <div className={classes.root}>
+        <div className={classes.root} onClick={handleClick}>
             <div className={classes.colors}>
                 {miniColorBoxes}
             </div>
