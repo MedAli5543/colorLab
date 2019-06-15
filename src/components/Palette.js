@@ -33,10 +33,6 @@ class Palette extends React.Component {
                     setColorFormat={this.setColorFormat}
                 />
                 <div className="palette-colors">{colorBoxes}</div>
-                <footer className="palette-footer">
-                    {paletteName}
-                    <span className="emoji">{emoji}</span>
-                </footer>
             </div>
         )
     }
