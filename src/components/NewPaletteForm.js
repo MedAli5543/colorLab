@@ -1,24 +1,19 @@
 import React from 'react';
 import clsx from 'clsx';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import List from '@material-ui/core/List';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
+import Button from '@material-ui/core/Button';
+import {ChromePicker} from 'react-color';
 
-const drawerWidth = 240;
+const drawerWidth = 400;
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -74,6 +69,12 @@ const useStyles = makeStyles(theme => ({
     }),
     marginLeft: 0,
   },
+  button: {
+    margin: theme.spacing(1),
+  },
+  input: {
+    display: 'none',
+  },
 }));
 
 export default function NewPaletteForm() {
@@ -108,7 +109,7 @@ export default function NewPaletteForm() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
-            Persistent drawer
+            Create a Palette
           </Typography>
         </Toolbar>
       </AppBar>
@@ -127,6 +128,21 @@ export default function NewPaletteForm() {
           </IconButton>
         </div>
         <Divider />
+        <div>
+          <Button variant="contained" color="primary" className={classes.button}>
+            Create Palette
+          </Button>
+          <Button variant="contained" color="secondary" className={classes.button}>
+            Clear Palette
+          </Button>
+        </div>
+        <ChromePicker
+          color="purple"
+          //onChangeComplete={newColor => }
+        />
+        <Button variant="contained" color="primary" className={classes.button}>
+          Add Color
+        </Button>
       </Drawer>
       <main
         className={clsx(classes.content, {
